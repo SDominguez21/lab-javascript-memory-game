@@ -43,35 +43,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelector("#memory_board").innerHTML = html;
 
   // Bind the click event of each element to a function
-  document.querySelectorAll(".back").forEach(function(card) {
-    
+  document.querySelectorAll(".card").forEach(function(card) {
     card.onclick = function() {
       // TODO: write some code here
       console.log("Card clicked");
       $(this)
-        .parent()
         .children()
         .toggleClass("back front");
+
+        MemoryGame.prototype.checkIfPair();
     };
+  });  
 
-  });
-
-
-  // OTHER SOLUTION
-  // $('.back').click(functon(){
-  //   $(this).css('display: none') 
-  // OR
-  // $(this).hide();
-  // OR
-  // $(this).removeClass('bacl).andClass('front');
-  // $(this).siblings('.front').addClass('back');
-  //   console.log('clicked');
-
-
-  // memoryGame.currentPair.push($(this).parent)
-  // if(memeryGame.currentPair.length === 2){
-    // console.log('there are twot htings in the current hand, time to compare', memoryGame.currentPair[0].prop('name'))
-  // }
-
-
+  
 });
+
+// OTHER SOLUTION
+// $('.back').click(functon(){
+//   $(this).css('display: none')
+// OR
+// $(this).hide();
+// OR
+// $(this).removeClass('bacl).andClass('front');
+// $(this).siblings('.front').addClass('back');
+//   console.log('clicked');
+
+// memoryGame.currentPair.push($(this).parent)
+// if(memeryGame.currentPair.length === 2){
+// console.log('there are twot htings in the current hand, time to compare', memoryGame.currentPair[0].prop('name'))
+// }
